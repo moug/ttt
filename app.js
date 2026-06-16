@@ -41,6 +41,7 @@ function processarImc() {
 // ==========================================
 // TRUQUE DIDÁTICO: Se o código rodar no navegador, 'module' é indefinido e este bloco é ignorado.
 // Se rodar via terminal no Node.js/Jest, o módulo exporta as funções para serem testadas!
+// blá
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = { calcularImc, classificarImc };
 }
