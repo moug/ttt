@@ -1,0 +1,20 @@
+name: Esteira de Integracao Continua - IMC
+on: [push] # O GATILHO: Garante a execucao automatica a cada nova subida (push)
+
+jobs:
+  executar-testes-em-nuvem:
+    runs-on: ubuntu-latest # Acorda uma máquina Linux Linux Ubuntu zerada na nuvem
+    steps:
+      - name: Passo 1 - Baixar o codigo atualizado do repositorio para o servidor
+        uses: actions/checkout@v3
+
+      - name: Passo 2 - Configurar o ecossistema do Node.js na maquina virtual
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Passo 3 - Instalar de forma limpa o Jest e as dependencias no servidor
+        run: npm install
+
+      - name: Passo 4 - Disparar de forma obrigatoria a nossa suite de testes
+        run: npm test
